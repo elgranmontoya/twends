@@ -1,15 +1,15 @@
-#Codename: Green Gopher
+# Codename: Green Gopher
 
-##Team Members
+## Team Members
 * Dylan Ahearn
 * Peter Wang
 * Elliot Whitehead
 * Evan Yin
 
-##About
+## About
 This Big Data project is an app that does a thing
 
-##Installation
+## Installation
 1. Install pip
   * Ubuntu: `apt-get update; apt-get -y install python-pip`
   * MacOS: `sudo easy_install pip`
