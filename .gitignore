@@ -1,2 +1,5 @@
+#[ MACOS FILES ]
+.DS_Store
+
 #[ VIRTUAL ENVIRONMENT ]
 venv
