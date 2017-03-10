@@ -7,7 +7,7 @@
 * Evan Yin
 
 ## About
-This Big Data project is an app that does a thing
+This Big Data project is an app that goes through the twitter firehouse of tweets and analyzes the tweets for emotions etc.
 
 ## Installation
 1. Install pip
