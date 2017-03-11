@@ -1,5 +1,15 @@
 #[ MACOS FILES ]
 .DS_Store
 
+#[ PYTHON ]
+.pyc
+*.*~
+
 #[ VIRTUAL ENVIRONMENT ]
 venv
+
+#[ DJANGO ]
+*.log
+
+#[ MISC ]
+*.swp
