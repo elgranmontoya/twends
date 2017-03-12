@@ -2,8 +2,7 @@
 .DS_Store
 
 #[ PYTHON ]
-.pyc
-*.*~
+*.pyc
 
 #[ VIRTUAL ENVIRONMENT ]
 venv
