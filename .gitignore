@@ -13,3 +13,4 @@ venv
 
 #[ MISC ]
 *.swp
+.idea/
