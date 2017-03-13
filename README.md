@@ -1,4 +1,4 @@
-# Codename: Green Gopher
+# Project: Mappiness
 
 ## Team Members
 * Dylan Ahearn
