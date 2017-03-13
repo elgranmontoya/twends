@@ -1,13 +1,12 @@
 # Project: Mappiness
+Mappiness is a scalable big data application which analyzes sentiment from geo-tagged tweets in the United States. Users can view this information overlaid on an interactive map.
+
 
 ## Team Members
 * Dylan Ahearn
 * Peter Wang
 * Elliot Whitehead
 * Evan Yin
-
-## About
-Mappiness is a scalable big data application which analyzes sentiment from geo-tagged tweets in the United States. Users can view this information overlaid on an interactive map.
 
 ## Installation
 1. Install pip (if needed)
