@@ -18,3 +18,5 @@ Mappiness is a scalable big data application which analyzes sentiment from geo-t
 4. Activate your new virtual environment (Must be done every time to run the codebase): `source venv/bin/activate`
   * To deactivate the virtual environment, simply run `deactivate` (or kill terminal session)
 5. Install project dependencies: `pip install -r requirements.txt`
+6. To start the Django app server, run `python mappiness/manage.py runserver`
+7. Visit [http://localhost:8000](https://goo.gl/H8y9c7) to see your running Django app!
