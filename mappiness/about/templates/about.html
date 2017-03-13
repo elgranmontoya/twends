@@ -6,9 +6,38 @@
 	
 </head>
 <body>
-	<h1>We're Mappiness!</h1>
-	<h3>Nice to meet you!</h3>
+	<div class="container">
+		<div class="row">
+			<h1>Project: Mappiness</h1>
+			<p>A big-data app that shows you where people are happy :)</p>
+		</div>
+		<div class="row">
+			<div id="map" style="height: 300px">
+				
+			</div>
+		</div>
+	</div>
 
-	<img src="http://i3.kym-cdn.com/entries/icons/original/000/001/987/fyeah.jpg">
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnn4nBX30_RSHGOSeVXRDYUnx5fj03k3A"></script>
+
+	<script>
+		function initMap() {
+			var map;
+			var boulder = {lat: 40.007660, lng: -105.269868};
+
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: boulder,
+				zoom: 17
+			});
+
+			var marker = new google.maps.Marker({
+				position: boulder,
+				map: map,
+				title: 'Hello World!'
+			});
+		}
+
+		initMap();
+	</script>
 </body>
 </html>
