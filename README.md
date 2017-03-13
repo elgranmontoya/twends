@@ -7,7 +7,7 @@
 * Evan Yin
 
 ## About
-This Big Data project is an app that goes through the twitter firehouse of tweets and analyzes the tweets for emotions etc.
+Mappiness is a scalable big data application which analyzes sentiment from geo-tagged tweets in the United States. Users can view this information overlaid on an interactive map.
 
 ## Installation
 1. Install pip (if needed)
