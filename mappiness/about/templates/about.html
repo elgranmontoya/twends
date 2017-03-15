@@ -1,33 +1,138 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>About</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cabin|Quicksand" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style type="text/css" media="screen">
+		.logo{
+			width: 250px;
+			display: inline-block;
+		}
+	</style>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-			<h1>Project: Mappiness</h1>
-			<p>A big-data app that shows you where people are happy :)</p>
+			<h1 style="font-family: Cabin; font-weight: bold; text-align: center;">Project: Mappiness</h1>
 		</div>
 		<div class="row">
-			<div id="map" style="height: 300px">
+			<h2>About</h2>
+			<p style="font-family: Quicksand; font-size: 25px;">Mappiness is a scalable big-data application that visualizes 
+				historical and real time happiness of the United States, by analyzing the <a href="#" id="sentiment">sentiment</a> of geo-tagged tweets.</p>
+				<div id="SLJ" style="position:relative; height:350px; display:none;"><img style="position:absolute; left:0; right:0; margin:0 auto;" class="img-responsive" src="https://i.imgflip.com/1lcmat.jpg" alt=""></div>
+		</div>
+		<div class="row">
+			<div id="map" style="height: 500px">
 				
 			</div>
 		</div>
-	</div>
+		<div class="row">
+			<h2>Team</h2>
+			
+			<div class="col l3 s6">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="https://scontent-ord1-1.xx.fbcdn.net/v/t1.0-9/12096387_1209847489042483_939017887449324363_n.jpg?oh=201141f46cf44de789bd5240101e933a&oe=5931623C">
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4">Dylan Ahearn<i class="material-icons right">more_vert</i></span>
+						<p><a target="_blank" href="https://github.com/dyah7099">@dyah7099</a></p>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">Dylan Ahearn<i class="material-icons right">close</i></span>
+						<p>Dylan enjoys hiking and is an avid Boston sports fan. Favorite quote: "I said it sucks to be a CSU Ram!"</p>
+					</div>
+				</div>
+			</div>
+			<div class="col l3 s6">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="https://scontent-ord1-1.xx.fbcdn.net/v/t1.0-0/p206x206/17155729_10212753724382578_158371545755306205_n.jpg?oh=33550f0b8cecdf0a1c2682e474fcaf0e&oe=5930FE8B">
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4">Peter Wang<i class="material-icons right">more_vert</i></span>
+						<p><a target="_blank" href="https://github.com/peter-z-wang">@peter-z-wang</a></p>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">Peter Wang<i class="material-icons right">close</i></span>
+						<p>College burnout who plays too many video games</p>
+					</div>
+				</div>
+			</div>
+			<div class="col l3 s6">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="https://scontent-ord1-1.xx.fbcdn.net/v/t1.0-9/15192750_10211649499417644_4688260934611251850_n.jpg?oh=efca36f457f779f3e71204604e8d0907&oe=5972A9D6">
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4">Elliot Whitehead<i class="material-icons right">more_vert</i></span>
+						<p><a target="_blank" href="https://github.com/elliotwhitehead">@elliotwhitehead</a></p>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">Elliot Whitehead<i class="material-icons right">close</i></span>
+						<p>Emphatic Leader</p>
+					</div>
+				</div>
+			</div>
+			<div class="col l3 s6">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="https://scontent-ord1-1.xx.fbcdn.net/v/t1.0-9/11863475_1190688250946845_3338377034003355437_n.jpg?oh=300641fd834b71d523f0b20e9dfa4ffe&oe=5967F993">
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4">Evan Yin<i class="material-icons right">more_vert</i></span>
+						<p><a target="_blank" href="https://github.com/evan650">@evan650</a></p>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">Evan Yin<i class="material-icons right">close</i></span>
+						<p>Evan is a 3rd year computer science major who enjoys skiing.</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
+		<div class="row">
+			<h2>Productivity / DevOps</h2>
+			<img class="logo" src="http://domoticx.com/wp-content/uploads/python-pip-logo.png" alt="pip">
+			<img class="logo" src="http://newsroom.unl.edu/announce/files/file64313.jpg" alt="docker">
+			<img class="logo" src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" alt="github">
+			<img class="logo" src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_1473786787/pivotal-tracker.png" alt="pivotal">
+			<img class="logo" src="https://brandfolder.com/slack/logo/slack-primary-logo.png" alt="slack">
+		</div>
+
+		<div class="row" style="padding-top: 50px">
+			<h2>Tech</h2>
+			<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/AmazonWebservices_Logo.svg/2000px-AmazonWebservices_Logo.svg.png" alt="aws">
+			<img class="logo" src="https://www.djangoproject.com/s/img/logos/django-logo-positive.png" alt="django">
+			<img style="width:150px" class="logo" src="http://streetfightmagcom.b.presscdn.com/wp-content/uploads/gnip_1x1.jpg" alt="gnip">
+			<img class="logo" src="http://www.tivix.com/uploads/images/kafkalogo.height-312.png" alt="kafka">
+			<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/1000px-AngularJS_logo.svg.png" alt="angular">
+			<img class="logo" src="http://logos-download.com/wp-content/uploads/2016/05/Google_Maps_logo_wordmark.png" alt="gmaps">
+			<img style="width: 150px" class="logo" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTWUOZBDRSZO0EjVcjG5ULZORf__Bg_zRvlv7x-NpSOU4126YPDRD-0e8IU" alt="D3">
+			
+
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnn4nBX30_RSHGOSeVXRDYUnx5fj03k3A"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
 
 	<script>
 		function initMap() {
 			var map;
-			var boulder = {lat: 40.007660, lng: -105.269868};
+			var boulder = {lat: 39.8282, lng: -98.5795};
 
 			map = new google.maps.Map(document.getElementById('map'), {
 				center: boulder,
-				zoom: 17
+				zoom: 4,
 			});
 
 			var marker = new google.maps.Marker({
@@ -38,6 +143,13 @@
 		}
 
 		initMap();
+
+		$(document).ready(function(){
+			$('#sentiment').on("click", function(){
+				$('#SLJ').slideToggle();
+			})
+		});
+
 	</script>
 </body>
 </html>
