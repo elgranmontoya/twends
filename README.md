@@ -19,4 +19,5 @@ Mappiness is a scalable big data application which analyzes sentiment from geo-t
 5. Install project dependencies: `pip install -r requirements.txt`
 6. To start the Django app server, run `python mappiness/manage.py runserver`
 7. Visit [http://localhost:8000](https://goo.gl/H8y9c7) to see your running Django app!
-8. install cassandra by debian package by following this link: http://cassandra.apache.org/doc/latest/getting_started/installing.html
+8. install cassandra by debian package by following this link: http://cassandra.apache.org/doc/latest/getting_started/installing.html, In the first step of this guide, make sure the version is version 3.10.
+9. 
