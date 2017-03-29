@@ -31,3 +31,7 @@ now we can unpack the tar file with this command
 tar -xvzf apache-cassandra-3.10-bin.tar.gz
 You have now successfully downloaded cassandra
 9. 
+
+## Cassandra
+-to check the status of the nodes go into the cassandra directory and the apachefile and do.
+bin/nodetools status
