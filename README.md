@@ -37,3 +37,5 @@ You have now successfully downloaded cassandra
 bin cassandra -f (-f is important because we can then kill the process with [crtl/cmd + c] rather than figuring out what the process id cassandra is running and the kill from there.
 *to check the status of the nodes go into the cassandra directory and the apachefile and do.
 bin/nodetools status
+
+TEST commit
