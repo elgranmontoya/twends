@@ -1,5 +1,5 @@
-# Project: Mappiness
-Mappiness is a scalable big data application which analyzes sentiment from geo-tagged tweets in the United States. Users can view this information overlaid on an interactive map.
+# Project: Twends
+Twends is an app for discovering hyper-local Twitter trends
 
 
 ## Team Members
@@ -17,7 +17,7 @@ Mappiness is a scalable big data application which analyzes sentiment from geo-t
 4. Activate your new virtual environment (Must be done every time to run the codebase): `source venv/bin/activate`
   * To deactivate the virtual environment, simply run `deactivate` (or kill terminal session)
 5. Install project dependencies: `pip install -r requirements.txt`
-6. To start the Django app server, run `python mappiness/manage.py runserver`
+6. To start the Django app server, run `python twends/manage.py runserver`
 7. Visit [http://localhost:8000](https://goo.gl/H8y9c7) to see your running Django app!
 8. install cassandra by debian package by following this link: http://cassandra.apache.org/doc/latest/getting_started/installing.html, In the first step of this guide, make sure the version is version 3.10.
 
