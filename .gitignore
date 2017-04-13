@@ -10,6 +10,9 @@ venv
 #[ DJANGO ]
 *.log
 
+#[ DATABASE ]
+db.sqlite3
+
 #[ MISC ]
 *.swp
 .idea/
