@@ -12,6 +12,12 @@ venv
 
 #[ DATABASE ]
 db.sqlite3
+cassandra/logs
+cassandra/data
+
+#temp
+cassandra/apache-cassandra-3.10/logs
+cassandra/apache-cassandra-3.10/data
 
 #[ MISC ]
 *.swp
