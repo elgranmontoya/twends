@@ -21,3 +21,8 @@ Twends is an app for discovering hyper-local Twitter trends
 7. Sync the db: `twends/manage.py sync_cassandra`
 8. To start the Django app server, run `python twends/manage.py runserver`
 9. Visit [http://localhost:8000](https://goo.gl/H8y9c7) to see your running Django app!
+
+---
+## Dependency Information
+Cassandra v3.10
+Kafka v2.10.0
