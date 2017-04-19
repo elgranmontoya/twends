@@ -1,5 +1,4 @@
 import requests
-from jq import jq
 from requests.auth import HTTPBasicAuth
 import json
 import os
