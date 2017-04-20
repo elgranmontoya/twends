@@ -6,7 +6,6 @@ class Tweet(DjangoCassandraModel):
 	id = columns.UUID(primary_key=True, default=uuid.uuid4)
 	created_at = columns.DateTime()
 	date = columns.Text()
-	twitter_snowflake = columns.Text(required=True)
 	geo_lat = columns.Float()
 	geo_long = columns.Float()
 	status = columns.Text(required=True)
