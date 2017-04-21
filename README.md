@@ -22,6 +22,11 @@ Twends is an app for discovering hyper-local Twitter trends
 8. To start the Django app server, run `python twends/manage.py runserver`
 9. Visit [http://localhost:8000](https://goo.gl/H8y9c7) to see your running Django app!
 
+10. Dowload DataStax at https://academy.datastax.com/ , you will have to create a free account.
+11. Download for Mac or linux, select the install directory to be green-gopher.
+12. To run cassandra go into the dse folder an type "bin/dse cassandra"
+13. possible errors- if log error delete the logs in "dse/commitlog", if an error with gossiping to seeds, go into "dse/resources/cassandra/conf/cassandra.yaml and make the listen address blank.
+
 ---
 ## Dependency Information
 Cassandra v3.10
