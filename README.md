@@ -23,11 +23,12 @@ Twends is an app for discovering hyper-local Twitter trends
 9. Visit [http://localhost:8000](https://goo.gl/H8y9c7) to see your running Django app!
 
 10. Dowload DataStax at https://academy.datastax.com/ , you will have to create a free account.
-11. Download for Mac or linux, select the install directory to be green-gopher.
+11. Download for Mac or linux, select the install directory to be green-gopher. (Watch the install instruction video. You might have to reinstall it if you did it wrong)
 12. To run cassandra go into the dse folder an type "bin/dse cassandra"
 13. possible errors- if log error delete the logs in "dse/commitlog", if an error with gossiping to seeds, go into "dse/resources/cassandra/conf/cassandra.yaml and make the listen address blank.
-14. go into the cql shell with "bin/dse cqlsh".
-15. to set up a test database run the commands in cqlCreateTable 
+14. To see if your cassandra node is up and running type "bin/nodetool status"
+15. go into the cql shell with "bin/dse cqlsh".
+16. to set up a test database run the commands in cqlCreateTable 
 
 ---
 ## Dependency Information
