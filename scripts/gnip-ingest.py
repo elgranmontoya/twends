@@ -16,14 +16,6 @@ full_http_response = requests.post(url, auth = HTTPBasicAuth('elliot.whitehead@c
 response_text = (full_http_response.text)
 response_json = json.loads(response_text)
 
-#next_key = response_json['next']
-
-
-i = 1
-for tweet in response_json['results']:
-	#print("Tweet #", i, " was posted at ", tweet['postedTime'], sep='')
-	i += 1
-
 def get_key(response):
 	response_json = json.loads(response)
 	return(response_json['next'])
@@ -69,19 +61,3 @@ try:
 		
 except:
 	print("You've reached the last page of data!")
-
-# data = json.loads(response.text)
-
-# if(data['next']):
-# 	print(data['next'])
-
-
-
-# while()
-
-# print("\n\n\nNext token: ",next)
-
-'''
-for tweet in json.loads(response.text)['results']:
-	print("Tweet posted at:", tweet['postedTime'])
-'''
