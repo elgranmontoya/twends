@@ -17,19 +17,3 @@ response = requests.post(url, auth = HTTPBasicAuth('elliot.whitehead@colorado.ed
 print(response.text)
 
 # next = response['next']
-
-'''
-i = 0
-for i in range(5):
-	
-	response = requests.get(url, auth = HTTPBasicAuth('elliot.whitehead@colorado.edu', 'silver2345'), params = {'next' : next}).json()
-	next = response['next']
-
-	# response_pretty = requests.get(url, auth = HTTPBasicAuth('elliot.whitehead@colorado.edu', 'silver2345'), params = {'next' : next})
-
-
-
-	print (response)
-
-	#print next
-'''
