@@ -27,11 +27,7 @@ Twends is an app for discovering hyper-local Twitter trends
 12. To run cassandra go into the dse folder an type "bin/dse cassandra"
 13. possible errors- if log error delete the logs in "dse/commitlog", if an error with gossiping to seeds, go into "dse/resources/cassandra/conf/cassandra.yaml and make the listen address blank.
 14. go into the cql shell with "bin/dse cqlsh".
-15. to set up a test database do: 
-CREATE KEYSPACE testTweets WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3} AND DURABLE_WRITES=true;
-use testTweets;
-CREATE TABLE tweets(id uuid PRIMARY KEY, created_at text , date text, status text, hashtags text);
-
+15. to set up a test database run the commands in cqlCreateTable 
 
 ---
 ## Dependency Information
