@@ -32,4 +32,3 @@ Twends is an app for discovering hyper-local Twitter trends
 ---
 ## Dependency Information
 Cassandra v3.10
-Kafka v2.10.0
