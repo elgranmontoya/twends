@@ -3,6 +3,9 @@ from requests.auth import HTTPBasicAuth
 import json
 import os
 from time import sleep
+from cqlengine import columns
+from cqlengine import Model
+from cqlengine import connection
 
 
 
@@ -12,7 +15,7 @@ url = "https://gnip-api.twitter.com/search/fullarchive/accounts/greg-students/pr
 #"query": 		"has:hashtags bounding_box:[-105.301758 39.964069 -105.178505 40.09455]",\
 #'''
 query = '{\
-			"query": 		"has:hashtags (place:fd70c22040963ac7 OR bounding_box:[-105.301758 39.964069 -105.178505 40.09455])",\
+			"query": 		"has:hashtags from: gogreengophers(place:fd70c22040963ac7 OR bounding_box:[-105.301758 39.964069 -105.178505 40.09455])",\
 			"fromDate":		"200701010000",\
 			"toDate":		"201704222025",\
 			"maxResults":	"500"\
@@ -57,6 +60,9 @@ print("-----------------")
 #print(full_http_response.status_code)
 
 request_bool = True
+
+connection.setup(['127.0.0.1'], "testtweets")
+
 
 while(request_bool):
 	full_http_response = requests.post(url, auth = HTTPBasicAuth('elliot.whitehead@colorado.edu', 'silver2345'), data=query)
