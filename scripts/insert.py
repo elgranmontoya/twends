@@ -2,19 +2,24 @@ from cqlengine import columns
 from cqlengine import Model
 import uuid
 
-class Tweet(Model):
-	id = columns.UUID(primary_key=True, default=uuid.uuid4)
-	created_at = columns.DateTime()
-	date = columns.Text()
+class AllTweets(Model):
+	created_at_year = columns.Integer(primary_key=True)
+	created_at_month = columns.Integer(primary_key=True)
+	created_at_day = columns.Integer(primary_key=True)
+	created_at_time=columns.Integer(primary_key=True)
 	status = columns.Text(required=True)
 	hashtags = columns.Set(columns.Text())
+	author_user_name= columns.Text()
+	author_image=columns.Text()
 	
 	
+#~ if you get connection errors change the port number to what you get in cqlsh
 from cqlengine import connection
-connection.setup(['127.0.1.1'], "testTweets")
+connection.setup(['10.0.2.15'], "testtweets")
 
-from cqlengine.management import sync_table
-sync_table(ExampleModel)
+#~ from cqlengine.management import sync_table
+#~ sync_table(AllTweets)
 
-row1=Tweet.create(created_at='7:00', date='4212017', hashtag={'Dylan','Evan','HackCU'}, status= 'Hack CU is lit')
+myset={'Dylan','Elliot'}
+row1=AllTweets.create( created_at_year=2016,created_at_month=04, created_at_day=22,created_at_time=1000, hashtags={'Dylan','Elliot'}, status= 'Hack CU is so lit', author_user_name='green-gophers', author_image='fake link')
 	
