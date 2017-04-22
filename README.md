@@ -29,7 +29,8 @@ Twends is an app for discovering hyper-local Twitter trends
 14. To see if your cassandra node is up and running type "bin/nodetool status"
 15. go into the cql shell with "bin/dse cqlsh".
 16. to set up a test database run the commands in cqlCreateTable 
-
+17. to run spark use the command "bin/dse spark" this runs spark with scala. to close use 'exit()'
+18. to check if spark is active use bin/dsetool ring
 ---
 ## Dependency Information
 Cassandra v3.10
