@@ -2,22 +2,25 @@ import requests
 from requests.auth import HTTPBasicAuth
 import json
 import os
+from time import sleep
+
 
 
 url = "https://gnip-api.twitter.com/search/fullarchive/accounts/greg-students/prod.json?"
 
 # Multi-page query (the real deal)
-# '''
+'''
 query = '{\
 			"query": 		"has:hashtags bounding_box:[-105.301758 39.964069 -105.178505 40.09455]",\
 			"fromDate":		"201703290000",\
-			"toDate":		"201704010000",\
+			"toDate":		"201710010000",\
 			"maxResults":	"10"\
+			
 		}'
-# '''
+'''
 
 # Single page query (for testing)
-# query = '{"query": "has:hashtags from:gogreengophers", "maxResults": "10"}'
+query = '{"query": "has:hashtags from:gogreengophers", "maxResults": "10"}'
 
 # Authenticate and request a payload from gnip
 full_http_response = requests.post(url, auth = HTTPBasicAuth('elliot.whitehead@colorado.edu', 'silver2345'), data=query)
@@ -33,7 +36,7 @@ def nextRequest(next_key, query_params):
 	next_query.update(next_key_dict)
 	query_new = json.dumps(next_query)
 	new_response = requests.post(url, auth = HTTPBasicAuth('elliot.whitehead@colorado.edu', 'silver2345'), data=query_new)
-	return(new_response.text)
+	return(new_response)
 
 
 # Where the magic happens!
@@ -49,29 +52,21 @@ first_payload = full_http_response.text
 print("\n-----------------")
 print("Page", page_num)
 print("-----------------")
-#
-for tweet in json.loads(first_payload)['results']:
-	print(tweet_num, " Posted at: ", tweet['postedTime'], " by @", tweet['actor']['preferredUsername'], " --> \"", tweet['body'], "\"", sep="")
-	print("Hashtags:", end=" ")
-	for hashtag in tweet['twitter_entities']['hashtags']:
-		print("#", hashtag['text'], sep="", end=" ")
-	print("\nLink:", tweet['link'])
-	tweet_num += 1
 
-page_num += 1
+# Handling request limit
+print(full_http_response.status_code)
 
-try:
-	next_key = getNextKey(first_payload)
-	while(next_key):
+request_bool = True
 
-		# Debug, remove later
-		print("\n-----------------")
-		print("Page", page_num)
-		print("-----------------")
-		#
+while(request_bool):
+	if(full_http_response.status_code >= 400):
 
-		next_page = nextRequest(next_key, query)
-		for tweet in json.loads(next_page)['results']:
+		print("Waiting...")
+		sleep(60)
+
+	else:
+
+		for tweet in json.loads(first_payload)['results']:
 			print(tweet_num, " Posted at: ", tweet['postedTime'], " by @", tweet['actor']['preferredUsername'], " --> \"", tweet['body'], "\"", sep="")
 			print("Hashtags:", end=" ")
 			for hashtag in tweet['twitter_entities']['hashtags']:
@@ -79,11 +74,38 @@ try:
 			print("\nLink:", tweet['link'])
 			tweet_num += 1
 
-		
-		next_key = getNextKey(next_page)
-
-		# Debug, remove later
 		page_num += 1
-		
-except:
-	print("\n---------------------------------\nYou've reached the last page of data!\n---------------------------------")
+
+		try:
+			next_key = getNextKey(first_payload)
+			while(next_key):
+
+				# Debug, remove later
+				print("\n-----------------")
+				print("Page", page_num)
+				print("-----------------")
+				#
+
+
+				next_page = nextRequest(next_key, query).text
+				for tweet in json.loads(next_page)['results']:
+					print(tweet_num, " Posted at: ", tweet['postedTime'], " by @", tweet['actor']['preferredUsername'], " --> \"", tweet['body'], "\"", sep="")
+
+					print("Hashtags:", end=" ")
+
+					for hashtag in tweet['twitter_entities']['hashtags']:
+						print("#", hashtag['text'], sep="", end=" ")
+
+
+					print("\nLink:", tweet['link'])
+					tweet_num += 1
+
+				
+				next_key = getNextKey(next_page)
+
+				# Debug, remove later
+				page_num += 1
+				
+		except:
+			request_bool = False
+			print("\n---------------------------------\nYou've reached the last page of data!\n---------------------------------")
