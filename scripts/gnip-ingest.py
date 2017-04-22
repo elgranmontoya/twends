@@ -9,21 +9,21 @@ from time import sleep
 url = "https://gnip-api.twitter.com/search/fullarchive/accounts/greg-students/prod.json?"
 
 # Multi-page query (the real deal)
-'''
+#"query": 		"has:hashtags bounding_box:[-105.301758 39.964069 -105.178505 40.09455]",\
+#'''
 query = '{\
-			"query": 		"has:hashtags bounding_box:[-105.301758 39.964069 -105.178505 40.09455]",\
-			"fromDate":		"201703290000",\
-			"toDate":		"201710010000",\
-			"maxResults":	"10"\
-			
+			"query": 		"has:hashtags (place:fd70c22040963ac7 OR bounding_box:[-105.301758 39.964069 -105.178505 40.09455])",\
+			"fromDate":		"200701010000",\
+			"toDate":		"201704222025",\
+			"maxResults":	"500"\
 		}'
-'''
+#'''
 
 # Single page query (for testing)
-query = '{"query": "has:hashtags from:gogreengophers", "maxResults": "10"}'
+#query = '{"query": "has:hashtags from:gogreengophers (place:fd70c22040963ac7 OR bounding_box:[-105.301758 39.964069 -105.178505 40.09455])", "maxResults": "10"}'
 
 # Authenticate and request a payload from gnip
-full_http_response = requests.post(url, auth = HTTPBasicAuth('elliot.whitehead@colorado.edu', 'silver2345'), data=query)
+#full_http_response = requests.post(url, auth = HTTPBasicAuth('elliot.whitehead@colorado.edu', 'silver2345'), data=query)
 
 # Returns 'next' key from a given Gnip response's body
 def getNextKey(response_payload):
@@ -46,7 +46,7 @@ page_num = 1
 tweet_num = 1
 
 # There's always a first page of data, so handle that first
-first_payload = full_http_response.text
+
 
 # Debug, remove later
 print("\n-----------------")
@@ -54,15 +54,17 @@ print("Page", page_num)
 print("-----------------")
 
 # Handling request limit
-print(full_http_response.status_code)
+#print(full_http_response.status_code)
 
 request_bool = True
 
 while(request_bool):
+	full_http_response = requests.post(url, auth = HTTPBasicAuth('elliot.whitehead@colorado.edu', 'silver2345'), data=query)
+	first_payload = full_http_response.text
 	if(full_http_response.status_code >= 400):
 
 		print("Waiting...")
-		sleep(60)
+		
 
 	else:
 
