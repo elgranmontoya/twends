@@ -17,7 +17,7 @@ query = '{\
 '''
 
 # Single page query (for testing)
-query = '{"query": "has:hashtags from:gogreengophers", "maxResults": "100"}'
+query = '{"query": "has:hashtags from:gogreengophers", "maxResults": "10"}'
 
 # Authenticate and request a payload from gnip
 full_http_response = requests.post(url, auth = HTTPBasicAuth('elliot.whitehead@colorado.edu', 'silver2345'), data=query)
@@ -51,7 +51,11 @@ print("Page", page_num)
 print("-----------------")
 #
 for tweet in json.loads(first_payload)['results']:
-	print(tweet_num, "Posted at:",tweet['postedTime']," | ")
+	print(tweet_num, " Posted at: ",tweet['postedTime'], " | \"", tweet['body'], "\"", sep="")
+	print("Hashtags:", end=" ")
+	for hashtag in tweet['twitter_entities']['hashtags']:
+		print("#", hashtag['text'], sep="", end=" ")
+	print()
 	tweet_num += 1
 
 page_num += 1
@@ -68,7 +72,11 @@ try:
 
 		next_page = nextRequest(next_key, query)
 		for tweet in json.loads(next_page)['results']:
-			print(tweet_num,tweet['postedTime'])
+			print(tweet_num, " Posted at: ",tweet['postedTime'], " | \"", tweet['body'], "\"", sep="")
+			print("Hashtags:", end=" ")
+			for hashtag in tweet['twitter_entities']['hashtags']:
+				print("#", hashtag['text'], sep="", end=" ")
+			print()
 			tweet_num += 1
 
 		
@@ -78,4 +86,4 @@ try:
 		page_num += 1
 		
 except:
-	print("You've reached the last page of data!")
+	print("\n---------------------------------\nYou've reached the last page of data!\n---------------------------------")
