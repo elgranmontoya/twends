@@ -36,12 +36,16 @@ Twends is an app for discovering hyper-local Twitter trends
 Cassandra v3.10
 
 ---
-## AWS IP Addresses
-|Instance Name 	|Address 		|
-|--------------	|---------------|
-|gg-django	|52.15.183.137	|
-|gg-cassandra-1	|52.14.4.123	|
-|gg-cassandra-2	|52.14.189.33	|
-|gg-cassandra-3	|52.15.221.11	|
-|gg-cassandra-4	|13.58.39.217	|
-|gg-opsc	|13.58.5.242	|
+## AWS SSH Access
+
+Navigate to the directory containing your private key (gg-key.pem) and run:
+`ssh -i "gg-key.pem" ubuntu@<EC2 DNS Name>`
+
+|Instance Name 	|Address 	|DNS Name						|
+|--------------	|---------------|-------------------------------------------------------|
+|gg-cassandra-1	|52.14.4.123	|ec2-52-14-4-123.us-east-2.compute.amazonaws.com	|
+|gg-cassandra-2	|52.14.189.33	|ec2-52-14-189-33.us-east-2.compute.amazonaws.com	|
+|gg-cassandra-3	|52.15.221.11	|ec2-52-15-221-11.us-east-2.compute.amazonaws.com	|
+|gg-cassandra-4	|13.58.39.217	|ec2-13-58-39-217.us-east-2.compute.amazonaws.com	|
+|gg-django	|52.15.183.137	|ec2-52-15-140-246.us-east-2.compute.amazonaws.com	|
+|gg-opsc	|13.58.5.242	|ec2-13-58-5-242.us-east-2.compute.amazonaws.com	|
