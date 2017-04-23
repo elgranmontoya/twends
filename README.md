@@ -39,8 +39,9 @@ Cassandra v3.10
 ## AWS IP Addresses
 |Instance Name 	|Address 		|
 |--------------	|---------------|
-|gg-django		|52.15.183.137	|
+|gg-django	|52.15.183.137	|
 |gg-cassandra-1	|52.14.4.123	|
 |gg-cassandra-2	|52.14.189.33	|
 |gg-cassandra-3	|52.15.221.11	|
 |gg-cassandra-4	|13.58.39.217	|
+|gg-opsc	|13.58.5.242	|
