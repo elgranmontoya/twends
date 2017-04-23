@@ -44,4 +44,3 @@ Cassandra v3.10
 |gg-cassandra-2	|52.14.189.33	|
 |gg-cassandra-3	|52.15.221.11	|
 |gg-cassandra-4	|13.58.39.217	|
-|gg-cassandra-	|13.58.39.217	|
