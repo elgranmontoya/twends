@@ -39,7 +39,7 @@ Cassandra v3.10
 |Instance Name 	|Address 		|
 |--------------	|---------------|
 |gg-django		|52.15.183.137	|
-|gg-cassandra-1	|13.58.133.240	|
+|gg-cassandra-1	|52.14.4.123	|
 |gg-cassandra-2	|52.14.189.33	|
 |gg-cassandra-3	|52.15.221.11	|
-|gg-cassandra-	|13.58.39.217	|
+|gg-cassandra-4	|13.58.39.217	|
