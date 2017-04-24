@@ -38,14 +38,13 @@ Cassandra v3.10
 ---
 ## AWS SSH Access
 
-Navigate to the directory containing your private key (gg-key.pem) and run:
-`ssh -i "gg-key.pem" ubuntu@<EC2 DNS Name>`
+Navigate to the directory containing your private key (gg-key.pem) and run the SSH command to login
 
-|Instance Name 	|Address 	|DNS Name						|
-|--------------	|---------------|-------------------------------------------------------|
-|gg-cassandra-1	|52.14.4.123	|ec2-52-14-4-123.us-east-2.compute.amazonaws.com	|
-|gg-cassandra-2	|52.14.189.33	|ec2-52-14-189-33.us-east-2.compute.amazonaws.com	|
-|gg-cassandra-3	|52.15.221.11	|ec2-52-15-221-11.us-east-2.compute.amazonaws.com	|
-|gg-cassandra-4	|13.58.39.217	|ec2-13-58-39-217.us-east-2.compute.amazonaws.com	|
-|gg-django	|52.15.183.137	|ec2-52-15-140-246.us-east-2.compute.amazonaws.com	|
-|gg-opsc	|13.58.5.242	|ec2-13-58-5-242.us-east-2.compute.amazonaws.com	|
+|Instance Name 	|Address 	|SSH Command					|
+|--------------	|---------------|-------------------------------------------------------------------------------|
+|gg-cassandra-1	|52.14.4.123	|ssh -i "gg-key.pem" ubuntu@ec2-52-14-4-123.us-east-2.compute.amazonaws.com	|
+|gg-cassandra-2	|52.14.189.33	|ssh -i "gg-key.pem" ubuntu@c2-52-14-189-33.us-east-2.compute.amazonaws.com	|
+|gg-cassandra-3	|52.15.221.11	|ssh -i "gg-key.pem" ubuntu@ec2-52-15-221-11.us-east-2.compute.amazonaws.com	|
+|gg-cassandra-4	|13.58.39.217	|ssh -i "gg-key.pem" ubuntu@ec2-13-58-39-217.us-east-2.compute.amazonaws.com	|
+|gg-django	|52.15.183.137	|sh -i "gg-key.pem" ubuntu@c2-52-15-140-246.us-east-2.compute.amazonaws.com	|
+|gg-opsc	|13.58.5.242	|ssh -i "gg-key.pem" ubuntu@ec2-13-58-5-242.us-east-2.compute.amazonaws.com	|
