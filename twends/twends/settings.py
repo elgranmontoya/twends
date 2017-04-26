@@ -19,6 +19,10 @@ FILES_DIR = os.path.join(BASE_DIR, 'files')
 
 TEMPLATES_DIR = os.path.join(FILES_DIR, 'templates')
 
+STATIC_DIR = os.path.join(FILES_DIR, 'static')
+
+STATICFILES_DIRS = [STATIC_DIR,]
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -47,7 +51,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'about',
-    'tweet'
+    'tweet',
+    'trendlist'
+    
 ]
 
 MIDDLEWARE = [
@@ -78,6 +84,12 @@ TEMPLATES = [
     },
 ]
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+
 WSGI_APPLICATION = 'twends.wsgi.application'
 
 
@@ -89,7 +101,7 @@ DATABASES = {
         'ENGINE': 'django_cassandra_engine',
         'NAME': 'fromdjango',
         'TEST_NAME': 'test_db',
-        'HOST': '13.58.2.80',
+        'HOST': '52.14.189.33',
         'OPTIONS': {
             'replication': {
                 'strategy_class': 'SimpleStrategy',
@@ -136,9 +148,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIR = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(FILES_DIR, 'static'),
 )
 CASSANDRA_FALLBACK_ORDER_BY_PYTHON = True
