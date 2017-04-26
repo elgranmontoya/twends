@@ -8,21 +8,29 @@ import os
 #import gnip-ingest
 import uuid
 
-class AllTweets(Model):
+class geo_tweet(Model):
+	
+	tweet_id = columns.UUID(primary_key = True, default = uuid.uuid4)
 	created_at_year = columns.Integer(primary_key=True)
 	created_at_month = columns.Integer(primary_key=True)
 	created_at_day = columns.Integer(primary_key=True)
 	created_at_time=columns.Integer(primary_key=True)
 	status = columns.Text(required=True)
 	hashtags = columns.Set(columns.Text())
-	author_user_name= columns.Text()
+	author_user_name = columns.Text()
 	author_image=columns.Text()
 	
+#time = columns.TimeUUID(primary_key=True, clustering_order = "DESC")
 	
 #~ if you get connection errors change the port number to what you get in cqlsh
+#13.58.2.80
+connection.setup(['13.58.2.80'], "fromdjango")
 
-connection.setup(['127.0.0.1'], "testtweets")
-
+# Comment toggle for creating table
+'''
+from cqlengine.management import sync_table
+sync_table(tweets)
+'''
 #print(gnip-ingest.query)
 
 
@@ -30,10 +38,10 @@ url = "https://gnip-api.twitter.com/search/fullarchive/accounts/greg-students/pr
 
 # Multi-page query (the real deal)
 query = '{\
-			"query": 		"has:hashtags from: gogreengophers (place:fd70c22040963ac7 OR bounding_box:[-105.301758 39.964069 -105.178505 40.09455])",\
-			"fromDate":		"201601010000",\
+			"query": 		"has:hashtags (place:fd70c22040963ac7 OR bounding_box:[-105.301758 39.964069 -105.178505 40.09455])",\
+			"fromDate":		"201401010000",\
 			"toDate":		"201704222025",\
-			"maxResults":	"10"\
+			"maxResults":	"500"\
 		}'
 
 
@@ -92,18 +100,25 @@ while(request_bool):
 				first_hashtags.add("#"+hashtag['text'])
 
 			#print first_hashtags
-
+			#'''
 			post_year = tweet['postedTime'][0:4]
 			post_month = tweet['postedTime'][5:7]
 			post_day = tweet['postedTime'][8:10]
 			post_time = tweet['postedTime'][11:13]+tweet['postedTime'][14:16]+tweet['postedTime'][17:19]
+			#'''
+			#post_time = tweet['postedTime']
 			user_name = tweet['actor']['preferredUsername']
 			user_image = tweet['actor']['image']
 			tweet_body = tweet['body']
 			
-			AllTweets.create( created_at_year = post_year, created_at_month = post_month,  created_at_day = post_day, created_at_time = post_time, hashtags = first_hashtags, status= tweet_body, author_user_name = user_name, author_image = user_image)
-
+			if(len(first_hashtags) != 0):
+				#'''
+				geo_tweet.create( created_at_year = post_year, created_at_month = post_month,  created_at_day = post_day, created_at_time = post_time, hashtags = first_hashtags, status= tweet_body, author_user_name = user_name, author_image = user_image)
+				'''
+				AllTweets.create(time = post_time, hashtags = first_hashtags, status= tweet_body, author_user_name = user_name, author_image = user_image)
+				'''
 			tweet_num += 1
+			first_hashtags.clear()
 
 		page_num += 1
 
@@ -127,17 +142,26 @@ while(request_bool):
 					for hashtag in tweet['twitter_entities']['hashtags']:
 						hashtag_set.add("#"+hashtag['text'])
 
+					#print hashtag_set
+					#'''
 					post_year = tweet['postedTime'][0:4]
 					post_month = tweet['postedTime'][5:7]
 					post_day = tweet['postedTime'][8:10]
 					post_time = tweet['postedTime'][11:13]+tweet['postedTime'][14:16]+tweet['postedTime'][17:19]
+					#'''
+					#post_time = tweet['postedTime']
 					user_name = tweet['actor']['preferredUsername']
 					user_image = tweet['actor']['image']
 					tweet_body = tweet['body']
 					
-					AllTweets.create( created_at_year = post_year, created_at_month = post_month,  created_at_day = post_day, created_at_time = post_time, hashtags = hashtag_set, status= tweet_body, author_user_name = user_name, author_image = user_image)
+					if(len(hashtag_set) != 0):
+						#'''
+						geo_tweet.create( created_at_year = post_year, created_at_month = post_month,  created_at_day = post_day, created_at_time = post_time, hashtags = hashtag_set, status= tweet_body, author_user_name = user_name, author_image = user_image)
+						'''
+						AllTweets.create(time = post_time, hashtags = hashtag_set, status= tweet_body, author_user_name = user_name, author_image = user_image)
 
-
+						'''
+					hashtag_set.clear()
 					tweet_num += 1
 
 				next_key = getNextKey(next_page)
@@ -156,8 +180,7 @@ while(request_bool):
 
 
 			
-#from cqlengine.management import sync_table
-#sync_table(AllTweets)
+
 
 #myset={'Dylan','Elliot'}
 #row1=AllTweets.create( created_at_year=2016,created_at_month=04, created_at_day=22,created_at_time=1000, hashtags={'Dylan','Elliot'}, status= 'Hack CU is so lit', author_user_name='green-gophers', author_image='fake link')
