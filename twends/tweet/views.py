@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from .models import GeoTweet
 
 # A home page for tweets which lists out all current tweets

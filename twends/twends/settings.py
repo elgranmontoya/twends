@@ -51,7 +51,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'about',
-    'tweet'
+    'tweet',
+    'trendlist'
+    
 ]
 
 MIDDLEWARE = [
@@ -99,7 +101,7 @@ DATABASES = {
         'ENGINE': 'django_cassandra_engine',
         'NAME': 'fromdjango',
         'TEST_NAME': 'test_db',
-        'HOST': '13.58.2.80',
+        'HOST': '52.14.189.33',
         'OPTIONS': {
             'replication': {
                 'strategy_class': 'SimpleStrategy',
