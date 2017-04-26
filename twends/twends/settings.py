@@ -23,6 +23,8 @@ STATIC_DIR = os.path.join(FILES_DIR, 'static')
 
 STATICFILES_DIRS = [STATIC_DIR,]
 
+STATIC_ROOT = os.path.join(FILES_DIR, 'assets')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 

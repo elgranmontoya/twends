@@ -6,7 +6,21 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'trendlist/index.html' %}">
 </head>
 <body>
+	<form action="" method="post" accept-charset="utf-8">
+		{% csrf_token %}
+		<label for="year"></label>
+		{# <input type="text" name="year"> #}
+		{{ form }}
+		<input type="submit" name="Submit">
+	</form>
 
 
+	<p>Thing----> {{ trendlist }}</p>
+{# 
+	{% if trendList %}
+		{% for tag in trendlist.tag_counts %}
+			<p>{{ tag }}</p>
+		{% endfor %}
+	{% endif %} #}
 </body>
 </html>
