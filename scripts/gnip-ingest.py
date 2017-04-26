@@ -3,9 +3,7 @@ from requests.auth import HTTPBasicAuth
 import json
 import os
 from time import sleep
-from cqlengine import columns
-from cqlengine import Model
-from cqlengine import connection
+
 
 
 
@@ -61,7 +59,6 @@ print("-----------------")
 
 request_bool = True
 
-connection.setup(['127.0.0.1'], "testtweets")
 
 
 while(request_bool):
