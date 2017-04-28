@@ -23,9 +23,10 @@ def search(request):
 
 			for hash_count in hash_counts:
 				hashtag_text = hash_count[1:hash_count.find(",")]
-				hashtag_count = hash_count[hash_count.find(",") + 1:hash_count.find(")")]
+				hashtag_count = int(hash_count[hash_count.find(",") + 1:hash_count.find(")")])
 				trend_list.append(Hashtag(hashtag_text, hashtag_count))
 
+			trend_list.sort(key=lambda h: h.count, reverse=True)
 
 	else:
 		form = TrendDate()
