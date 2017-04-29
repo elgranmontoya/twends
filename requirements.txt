@@ -4,3 +4,4 @@ cassandra-driver==3.9.0
 django-cassandra-engine==1.1.0
 cqlengine
 django_compressor
+gunicorn==0.3.0
