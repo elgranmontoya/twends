@@ -2,6 +2,6 @@ requests==2.13.0
 django==1.10.6
 cassandra-driver==3.9.0
 django-cassandra-engine==1.1.0
-cqlengine
-django_compressor
+cqlengine==0.21.0
+django_compressor==2.1.1
 gunicorn==0.3.0
