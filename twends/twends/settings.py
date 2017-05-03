@@ -19,6 +19,12 @@ FILES_DIR = os.path.join(BASE_DIR, 'files')
 
 TEMPLATES_DIR = os.path.join(FILES_DIR, 'templates')
 
+STATIC_DIR = os.path.join(FILES_DIR, 'static')
+
+STATICFILES_DIRS = [STATIC_DIR,]
+
+STATIC_ROOT = os.path.join(FILES_DIR, 'assets')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -47,7 +53,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'about',
-    'tweet'
+    'tweet',
+    'trendlist'
+    
 ]
 
 MIDDLEWARE = [
@@ -78,6 +86,11 @@ TEMPLATES = [
     },
 ]
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
 WSGI_APPLICATION = 'twends.wsgi.application'
 
 
@@ -86,21 +99,17 @@ WSGI_APPLICATION = 'twends.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+        'ENGINE': 'django_cassandra_engine',
+        'NAME': 'fromdjango',
+        'TEST_NAME': 'test_db',
+        'HOST': '52.14.189.33',
+        'OPTIONS': {
+            'replication': {
+                'strategy_class': 'SimpleStrategy',
+                'replcation_factor': 1
+            }
+        }
     }
-    # 'tweets': {
-    #     'ENGINE': 'django_cassandra_engine',
-    #     'NAME': 'db',
-    #     'TEST_NAME': 'test_db',
-    #     'HOST': '127.0.0.1',
-    #     'OPTIONS': {
-    #         'replication': {
-    #             'strategy_class': 'SimpleStrategy',
-    #             'replcation_factor': 1
-    #         }
-    #     }
-    # }
 }
 
 
@@ -140,5 +149,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+
+
 STATIC_URL = '/static/'
+
+STATICFILES_DIR = (
+    os.path.join(FILES_DIR, 'static'),
+)
 CASSANDRA_FALLBACK_ORDER_BY_PYTHON = True

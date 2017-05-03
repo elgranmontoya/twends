@@ -1,3 +1,0 @@
-[2017-04-03 17:00:32,209] TRACE Controller 0 epoch 19 received response {error_code=0} for a request sent to broker 10.202.112.97:9092 (id: 0 rack: null) (state.change.logger)
-[2017-04-03 17:03:05,271] TRACE Controller 0 epoch 20 received response {error_code=0} for a request sent to broker localhost:9092 (id: 0 rack: null) (state.change.logger)
-[2017-04-03 17:33:56,186] TRACE Controller 0 epoch 21 received response {error_code=0} for a request sent to broker rgnt2-112-97-dhcp.int.colorado.edu:9092 (id: 0 rack: null) (state.change.logger)

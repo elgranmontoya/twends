@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Discover Boulder Trends</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'trendlist/index.html' %}">
+
+</head>
+<body>
+	<form action="" method="post" accept-charset="utf-8">
+		{% csrf_token %}
+		<label for="year"></label>
+		{# <input type="text" name="year"> #}
+		{{ form }}
+		<input type="submit" name="Submit">
+	</form>
+
+	{% if trend_list %}
+		<ul>
+			{% for hashtag in trend_list %}
+				<li>{{ hashtag.text }} ({{ hashtag.count }})</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+</body>
+</html>
