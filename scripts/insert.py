@@ -24,13 +24,13 @@ class geo_tweet(Model):
 	
 #~ if you get connection errors change the port number to what you get in cqlsh
 #13.58.2.80
-connection.setup(['13.58.2.80'], "fromdjango")
+connection.setup(['52.14.189.33	'], "fromdjango")
 
-# Comment toggle for creating table
+# fromdjango toggle for creating table
 '''
 from cqlengine.management import sync_table
-sync_table(tweets)
-'''
+sync_table(geo_tweet)
+:'''
 #print(gnip-ingest.query)
 
 
